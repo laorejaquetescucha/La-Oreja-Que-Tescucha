@@ -1,0 +1,312 @@
+:root {
+    --color-primario: #2b5b59;       /* Verde salvia oscuro, transmite calma y confianza */
+    --color-primario-hover: #1e413f;
+    --color-acento: #5c8d89;         /* Tono intermedio */
+    --color-fondo: #f9fbfb;          /* Fondo suave/crema */
+    --color-blanco: #ffffff;
+    --color-texto: #2d3748;          /* Gris oscuro para buena lectura */
+    --color-texto-suave: #606f7b;
+    --borde-suave: #e2e8f0;
+    --sombra-tarjeta: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --sombra-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --fuente-principal: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --radio-borde: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* Contenedor central */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+}
+
+/* =======================================================
+   2. HEADER / ENCABEZADO (CON FOTO DEL CONSULTORIO)
+   ======================================================= */
+header {
+    /* Degradado traslúcido sobre la imagen del consultorio */
+    background: linear-gradient(
+        135deg, 
+        rgba(43, 91, 89, 0.88) 0%, 
+        rgba(92, 141, 137, 0.82) 100%
+    ),
+    url('./IMAGENES_USADAS/ChatGPT_Image_24_ago_2026_13_36_39_1.png') center/cover no-repeat;
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 6.5rem 1.5rem 6rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+header h1 {
+    font-size: 2.7rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+header p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 650px;
+    margin: 0 auto;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* =======================================================
+   3. SECCIONES GENERALES
+   ======================================================= */
+section {
+    margin-bottom: 4rem;
+}
+
+section h2 {
+    color: var(--color-primario);
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* Pequeño detalle visual debajo de los títulos */
+section h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-acento);
+    border-radius: 2px;
+}
+
+section > p {
+    color: var(--color-texto-suave);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
+/* =======================================================
+   4. SECCIÓN EQUIPO
+   ======================================================= */
+#equipo figure {
+    background: var(--color-blanco);
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    box-shadow: var(--sombra-tarjeta);
+    margin-top: 1.5rem;
+    max-width: 800px;
+}
+
+#equipo img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+}
+
+#equipo figcaption {
+    padding: 1.25rem 1.5rem;
+    font-style: italic;
+    color: var(--color-texto-suave);
+    border-left: 4px solid var(--color-acento);
+}
+
+/* =======================================================
+   5. SECCIÓN SOBRE NOSOTROS
+   ======================================================= */
+#sobre-nosotros {
+    background-color: var(--color-blanco);
+    padding: 2.5rem;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-tarjeta);
+    border-left: 6px solid var(--color-primario);
+}
+
+/* =======================================================
+   6. PILARES Y SERVICIOS (Formato Tarjetas en Grilla)
+   ======================================================= */
+#servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+}
+
+/* Título de la sección ocupando todo el ancho */
+#servicios h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 1.5rem;
+}
+
+/* Tarjetas individuales */
+#servicios figure {
+    background: var(--color-blanco);
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    box-shadow: var(--sombra-tarjeta);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid var(--borde-suave);
+}
+
+#servicios figure:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover);
+}
+
+#servicios figure img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+#servicios figcaption {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#servicios figcaption h3 {
+    color: var(--color-primario);
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+}
+
+#servicios figcaption p {
+    color: var(--color-texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* =======================================================
+   7. SECCIÓN DE CONTACTO
+   ======================================================= */
+#contacto {
+    background-color: var(--color-blanco);
+    padding: 2.5rem;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-tarjeta);
+    text-align: center;
+}
+
+#contacto h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#contacto p {
+    margin: 0 auto 1.5rem auto;
+}
+
+#contacto ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+#contacto a {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 0.85rem 1.8rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#contacto a:hover {
+    background-color: var(--color-primario-hover);
+    transform: scale(1.03);
+}
+
+/* =======================================================
+   8. FOOTER / PIE DE PÁGINA
+   ======================================================= */
+footer {
+    background-color: #20272c;
+    color: #a0aec0;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+
+/* =======================================================
+   9. RESPONSIVE DESIGN (Móviles y Pantallas Pequeñas)
+   ======================================================= */
+@media (max-width: 768px) {
+    header {
+        padding: 4.5rem 1.25rem 4rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1.05rem;
+    }
+
+    #equipo img {
+        height: 240px;
+    }
+
+    #contacto ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #contacto a {
+        text-align: center;
+    }
+}
+
+/* =======================================================
+   CONTENEDOR DEL MAPA
+   ======================================================= */
+.mapa-contenedor {
+    margin-top: 2.5rem;
+    width: 100%;
+    max-width: 900px;
+    height: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    box-shadow: var(--sombra-tarjeta);
+    border: 1px solid var(--borde-suave);
+}
+
+.mapa-contenedor iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .mapa-contenedor {
+        height: 280px;
+    }
+}
